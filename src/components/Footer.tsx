@@ -1,0 +1,91 @@
+import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-background border-t border-border/50">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <a href="#home" className="flex items-center gap-2 mb-6">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="font-display text-xl text-primary-foreground">TV</span>
+              </div>
+              <span className="font-display text-2xl tracking-wider text-foreground">
+                TRIPLE<span className="text-primary">VISION</span>
+              </span>
+            </a>
+            <p className="text-muted-foreground max-w-md mb-6">
+              Crafting impactful digital experiences that elevate brands and drive measurable results. Your vision, our expertise.
+            </p>
+            {/* Social Links */}
+            <div className="flex gap-4">
+              {[Facebook, Instagram, Twitter, Linkedin, Youtube].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-display text-lg text-foreground mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              {["Home", "About Us", "Services", "Projects", "Contact"].map((link) => (
+                <li key={link}>
+                  <a
+                    href={`#${link.toLowerCase().replace(" ", "-")}`}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-display text-lg text-foreground mb-6">Services</h4>
+            <ul className="space-y-3">
+              {["Media Production", "Event Planning", "Digital Marketing", "Web Development", "Branding"].map((service) => (
+                <li key={service}>
+                  <a
+                    href="#services"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-muted-foreground text-sm">
+            © {currentYear} Triple Vision Agency. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-sm">
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              Terms of Service
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
