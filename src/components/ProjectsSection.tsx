@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { AnimatedSection } from "@/components/ui/animated-section";
 
 const projects = [
   {
@@ -35,7 +37,7 @@ const ProjectsSection = () => {
     <section id="projects" className="relative py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        <AnimatedSection direction="up" className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
           <div>
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
               Our Work
@@ -51,22 +53,28 @@ const ProjectsSection = () => {
             View All Projects
             <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
           </a>
-        </div>
+        </AnimatedSection>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <motion.div
               key={project.id}
               className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 0.4, 0.25, 1] }}
             >
               {/* Image */}
-              <img
+              <motion.img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.7 }}
               />
 
               {/* Overlay */}
@@ -74,25 +82,53 @@ const ProjectsSection = () => {
 
               {/* Content */}
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <span className="text-primary text-sm font-medium tracking-wide mb-2">
+                <motion.span 
+                  className="text-primary text-sm font-medium tracking-wide mb-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
                   {project.category}
-                </span>
-                <h3 className="font-display text-2xl md:text-3xl text-foreground mb-4">
+                </motion.span>
+                <motion.h3 
+                  className="font-display text-2xl md:text-3xl text-foreground mb-4"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + index * 0.1 }}
+                >
                   {project.title}
-                </h3>
-                <div className={`flex items-center gap-2 text-foreground font-medium transition-all duration-300 ${hoveredId === project.id ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`}>
+                </motion.h3>
+                <motion.div 
+                  className="flex items-center gap-2 text-foreground font-medium"
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ 
+                    x: hoveredId === project.id ? 0 : -20, 
+                    opacity: hoveredId === project.id ? 1 : 0 
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
                   View Project
                   <ArrowUpRight className="w-5 h-5" />
-                </div>
+                </motion.div>
               </div>
 
               {/* Corner accent */}
-              <div className={`absolute top-0 right-0 w-24 h-24 transition-transform duration-500 ${hoveredId === project.id ? 'translate-x-0 translate-y-0' : 'translate-x-full -translate-y-full'}`}>
+              <motion.div 
+                className="absolute top-0 right-0 w-24 h-24"
+                initial={{ x: "100%", y: "-100%" }}
+                animate={{ 
+                  x: hoveredId === project.id ? 0 : "100%", 
+                  y: hoveredId === project.id ? 0 : "-100%" 
+                }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
                 <div className="absolute top-4 right-4 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                   <ArrowUpRight className="w-6 h-6 text-primary-foreground" />
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
