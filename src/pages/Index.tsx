@@ -6,6 +6,8 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import PartnersSection from "@/components/PartenerSection";
+import FounderSection from "@/components/FounderSection";
 
 const Index = () => {
   return (
@@ -15,6 +17,8 @@ const Index = () => {
       <ServicesSection />
       <AboutSection />
       <ProjectsSection />
+      <PartnersSection/>
+      <FounderSection/>
       <ContactSection />
       <Footer />
       <ScrollToTop />

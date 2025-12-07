@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import CountUp from "react-countup";
 
 const HeroSection = () => {
   return (
@@ -97,9 +98,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            DIGITAL MARKETING
+             A Full Service
             <br />
-            <span className="text-gradient">EXCELLENCE</span>
+            <span className="text-gradient">Media Agency</span>
           </motion.h1>
 
           {/* Subheading */}
@@ -109,8 +110,10 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            Crafting impactful, user-centric experiences with cutting-edge design and technology for maximum success. We transform visions into digital reality.
-          </motion.p>
+Digital agency crafting impactful, user-centric
+experiences with cutting-edge design and technology
+for maximum success. Innovative digital agency
+crafting impactful solutions          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div 
@@ -120,57 +123,51 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
             <Button variant="hero" size="lg" className="group">
-              Start Your Project
+              Contact Us
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="heroOutline" size="lg" className="group">
               <Play className="w-5 h-5" />
-              Watch Showreel
+              Learn More 
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div 
-            className="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-border/30"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            {[
-              { number: "150+", label: "Projects Delivered" },
-              { number: "50+", label: "Happy Clients" },
-              { number: "10+", label: "Years Experience" },
-            ].map((stat, index) => (
-              <motion.div 
-                key={stat.label} 
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-              >
-                <div className="font-display text-3xl md:text-4xl lg:text-5xl text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+        {/* Stats */}
+<motion.div 
+  className="grid grid-cols-4 gap-8 mt-20 pt-10 border-t border-border/30"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1, delay: 0.8 }}
+>
+  {[
+    { number: 180, label: "Projects Delivered", suffix: "+" },
+    { number: 500, label: "Happy Clients", suffix: "+" },
+    { number: 10, label: "Years Experience", suffix: "+" },
+    { number: 1500, label: "Cups of Tea", suffix: "+" },
+  ].map((stat, index) => (
+    <motion.div 
+      key={stat.label} 
+      className="text-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+    >
+      <div className="font-display text-3xl md:text-4xl lg:text-5xl text-primary mb-2">
+        <CountUp
+          start={0}
+          end={stat.number}
+          duration={4}
+          suffix={stat.suffix}
+        />
+      </div>
+      <div className="text-sm text-muted-foreground">{stat.label}</div>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ 
-          opacity: { duration: 1, delay: 1.5 },
-          y: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-        }}
-      >
-        <span className="text-xs text-muted-foreground tracking-widest">SCROLL</span>
-        <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
-      </motion.div>
+     
     </section>
   );
 };

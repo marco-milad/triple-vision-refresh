@@ -33,21 +33,22 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg group-hover:glow-orange transition-all duration-300">
-            <span className="font-display text-xl text-primary-foreground">TV</span>
-          </div>
-          <span className="font-display text-2xl tracking-wider text-foreground">
-            TRIPLE<span className="text-primary">VISION</span>
-          </span>
-        </a>
+ <img
+  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1763917799/logo2_transparent_jjpgv6.png"
+  alt="Triple Vision Logo"
+  className="w-52 h-44 object-contain rounded-lg shadow-lg group-hover:glow-orange transition-all duration-300"
+/>
+
+
+</a>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-14">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+              className="text-2xl font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -66,6 +67,7 @@ const Navbar = () => {
         <button
           className="lg:hidden text-foreground p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -77,7 +79,7 @@ const Navbar = () => {
           isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+        <div className="container mx-auto px-6 py-6 flex flex-col gap-4 mobile-menu">
           {navLinks.map((link) => (
             <a
               key={link.name}
