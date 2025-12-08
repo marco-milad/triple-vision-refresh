@@ -87,12 +87,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="w-7 h-4 rounded-full bg-primary animate-pulse" />
             <span className="text-sm font-medium text-primary">Triple Vision Agency</span>
           </motion.div>
-
-        <motion.h1 
-  className="leading-tight mb-6"
+<motion.h1 
+  className="leading-tight mb-8"
   initial={{ opacity: 0, y: 40 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -100,9 +99,9 @@ const HeroSection = () => {
   <span className="block text-4xl sm:text-5xl md:text-6xl font-medium tracking-widest">
     A Full Service
   </span>
-  <span className="block text-6xl sm:text-5xl md:text-8xl font-bold text-gradient">
-    Media Agency
-  </span>
+<span className="block text-5xl sm:text-6xl md:text-8xl font-bold text-gradient overflow-visible pb-4 leading-tight">
+  Media Agency
+</span>
 </motion.h1>
 
 
