@@ -91,17 +91,20 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-primary">Triple Vision Agency</span>
           </motion.div>
 
-          {/* Heading */}
-          <motion.h1 
-            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground leading-none mb-6"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-             A Full Service
-            <br />
-            <span className="text-gradient">Media Agency</span>
-          </motion.h1>
+        <motion.h1 
+  className="leading-tight mb-6"
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+>
+  <span className="block text-4xl sm:text-5xl md:text-6xl font-medium tracking-widest">
+    A Full Service
+  </span>
+  <span className="block text-6xl sm:text-7xl md:text-8xl font-bold text-gradient">
+    Media Agency
+  </span>
+</motion.h1>
+
 
           {/* Subheading */}
           <motion.p 

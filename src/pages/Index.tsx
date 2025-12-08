@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import PartnersSection from "@/components/PartenerSection";
 import FounderSection from "@/components/FounderSection";
+import WhatsappButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <FounderSection/>
       <ContactSection />
       <Footer />
+      <WhatsappButton/>
       <ScrollToTop />
     </main>
   );
