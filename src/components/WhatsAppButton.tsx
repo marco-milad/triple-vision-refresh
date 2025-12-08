@@ -1,9 +1,8 @@
 import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
-  const whatsappNumber = "+20 109 832 4080"; // غيره برقمك
-  const message = "Hello! I want to contact you."; // رسالة افتراضية
-
+  const whatsappNumber = "+20 109 832 4080"; 
+  const message = "Hello! I want to contact you."; 
   const whatsappLink = `https://wa.me/${whatsappNumber.replace(
     /[^0-9]/g,
     ""
