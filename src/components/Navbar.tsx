@@ -15,9 +15,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,29 +24,27 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border/50 py-4"
-          : "bg-transparent py-6"
+          ? "bg-background/95 backdrop-blur-md border-b border-border/50 py-3"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
- <img
-  src="https://res.cloudinary.com/dcui0elwh/image/upload/v1763917799/logo2_transparent_jjpgv6.png"
-  alt="Triple Vision Logo"
-  className="w-52 h-44 object-contain rounded-lg shadow-lg group-hover:glow-orange transition-all duration-300"
-/>
+        <a href="#home" className="flex items-center gap-2">
+          <img
+            src="https://res.cloudinary.com/dcui0elwh/image/upload/v1763917799/logo2_transparent_jjpgv6.png"
+            alt="Triple Vision Logo"
+            className="w-36 sm:w-40 md:w-44 h-28 sm:h-32 md:h-36 object-contain rounded-lg shadow-lg"
+          />
+        </a>
 
-
-</a>
-
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-14">
+        {/* Nav Links */}
+        <div className="hidden lg:flex items-center gap-8 sm:gap-10 md:gap-12 lg:gap-20">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-xl font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+              className="text-lg sm:text-xl font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />

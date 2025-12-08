@@ -100,7 +100,7 @@ const HeroSection = () => {
   <span className="block text-4xl sm:text-5xl md:text-6xl font-medium tracking-widest">
     A Full Service
   </span>
-  <span className="block text-6xl sm:text-7xl md:text-8xl font-bold text-gradient">
+  <span className="block text-6xl sm:text-5xl md:text-8xl font-bold text-gradient">
     Media Agency
   </span>
 </motion.h1>
