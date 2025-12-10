@@ -12,12 +12,12 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    value: "+1 (555) 123-4567",
+    value: "01098324080",
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    value: "123 Creative District, Design City",
+    value: "5 AL Mehwar St, Hadiket Badr from Gesr El Suez, Cairo.",
   },
 ];
 
