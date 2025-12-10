@@ -34,8 +34,8 @@ const FounderSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
           >
-            <p className=" tracking-widest text-primary font-bold mb-4 uppercase">
-              The Founder
+            <p className=" tracking-widest text-primary font-bold mb-5 uppercase">
+              CEO & Founder
             </p>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
